@@ -6,8 +6,6 @@ import android
 
 droid = android.Android()
 
-
-
 PORT = 8001
 
 class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
