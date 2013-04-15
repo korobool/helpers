@@ -12,8 +12,9 @@ PORT = 8001
 
 class Handler(SimpleHTTPServer.SimpleHTTPRequestHandler):
     def get_data(self):
-        droid.CameraTakePicture('./photo_.jpg')
-        f = open('./photo_.jpg', 'rb')
+        save_path = '/mnt/sdcard/photo_.jpg'
+        droid.cameraInteractiveCapurePicture(save_path)
+        f = open(save_path, 'rb')
         return f.read()
         
     def do_GET(self):
