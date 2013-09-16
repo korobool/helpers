@@ -31,6 +31,8 @@ download_links = set(map(lambda m: site + m.group(0), matches))
 
 def process_download_link(lnk):
     os.system('wget --content-disposition --restrict-file-names=nocontrol -c ' + lnk)
+    # Alternative way (might be better) 
+    # "curl -O " + lnk
 
 for lnk in download_links:
     process_download_link(lnk)
