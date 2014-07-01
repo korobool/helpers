@@ -27,7 +27,7 @@ pattern = "(?<=href=')/get/[\d]+"
 
 matches = re.finditer(pattern, page_html)
 
-download_links = set(map(lambda m: site + m.group(0), matches))
+download_links = sorted(list(set(map(lambda m: site + m.group(0), matches))))
 
 def process_download_link(lnk):
     os.system('wget --content-disposition --restrict-file-names=nocontrol -c ' + lnk)
